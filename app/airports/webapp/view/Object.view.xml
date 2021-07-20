@@ -1,30 +1,54 @@
-<mvc:View
-	controllerName="airports.controller.Object"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.f.semantic">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic" controllerName="airports.controller.Object">
 
-	<semantic:SemanticPage
-		id="page"
-		headerPinnable="false"
-		toggleHeaderOnTitleClick="false"
-		busy="{objectView>/busy}"
-		busyIndicatorDelay="{objectView>/delay}">
+	<semantic:SemanticPage id="page" headerPinnable="true" toggleHeaderOnTitleClick="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}">
 
 		<semantic:titleHeading>
-			<Title text="{AirportID}" />
+			<Title text="{Name}"/>
 		</semantic:titleHeading>
 
 		<semantic:headerContent>
-			<ObjectNumber
-			/>
+			<ObjectNumber/>
 		</semantic:headerContent>
 
 		<semantic:sendEmailAction>
 			<semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
 		</semantic:sendEmailAction>
+        
+  
 
-
+	<semantic:content>
+        <sap.ui.layout.form:Form editable="true" xmlns:sap.ui.layout.form="sap.ui.layout.form" id="form0">
+            <sap.ui.layout.form:formContainers>
+                <sap.ui.layout.form:FormContainer title="{Name}, {City}" id="container1">
+                    <sap.ui.layout.form:formElements>
+                        <sap.ui.layout.form:FormElement label="City" id="element1">
+                            <sap.ui.layout.form:fields>
+                                <Input width="100%" id="input1" value="{City}"/>
+                            </sap.ui.layout.form:fields>
+                        </sap.ui.layout.form:FormElement>
+                        <sap.ui.layout.form:FormElement label="Name" id="element2">
+                            <sap.ui.layout.form:fields>
+                                <Input width="100%" id="input2" value="{Name}"/>
+                            </sap.ui.layout.form:fields>
+                        </sap.ui.layout.form:FormElement>
+                        <sap.ui.layout.form:FormElement label="Airport ID" id="element3">
+                            <sap.ui.layout.form:fields>
+                                <Input width="100%" id="input3" value="{AirportID}"/>
+                            </sap.ui.layout.form:fields>
+                        </sap.ui.layout.form:FormElement>
+                        <sap.ui.layout.form:FormElement label="Country Code" id="element4">
+                            <sap.ui.layout.form:fields>
+                                <Input width="100%" id="input4" value="{CountryCode_code}"/>
+                            </sap.ui.layout.form:fields>
+                        </sap.ui.layout.form:FormElement>
+                    </sap.ui.layout.form:formElements>
+                </sap.ui.layout.form:FormContainer>
+            </sap.ui.layout.form:formContainers>
+            <sap.ui.layout.form:layout>
+                <sap.ui.layout.form:ResponsiveGridLayout id="layout0"/>
+            </sap.ui.layout.form:layout>
+        </sap.ui.layout.form:Form>
+	</semantic:content>
 	</semantic:SemanticPage>
 
 </mvc:View>
